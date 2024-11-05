@@ -1,7 +1,5 @@
 const fs = require('fs')
 
-const tree = require('./tree')
-
 const Request = require('./api')
 
 const config = fs.readFileSync('./config.json', 'utf-8')
@@ -14,20 +12,19 @@ const words = wordsTxt.split("\r\n")
 
 const request = new Request(authToken)
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 async function requestAndCollect(words) {
-    for (let i = 0; i < words.length; i++) {
 
-        console.log(words[i])
+    for (let i = 0; i < words.length; i++) {
 
         const id = await request.requestWordId(words[i])
 
         await request.collect(id)
 
+        console.log(` '${words[i]}'  collected`)
     }
+
+    console.log("Finished...")
+
 }
 
 requestAndCollect(words)
