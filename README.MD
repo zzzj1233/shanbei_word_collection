@@ -11,7 +11,8 @@
 
 如何获取 auth_token ?
 
-请参考博客内容
+请参考 [CSDN博客](https://blog.csdn.net/qq_42187215/article/details/143509034) 内容
+
 
 ## 3. 更新`words.txt`文件
 
